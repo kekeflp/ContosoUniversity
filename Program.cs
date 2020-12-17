@@ -1,13 +1,9 @@
 using ContosoUniversity.Data;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContosoUniversity
 {
@@ -17,10 +13,10 @@ namespace ContosoUniversity
         {
             var host = CreateHostBuilder(args).Build();
 
-            // Í¨¹ýÒÀÀµ×¢ÈëµÄ·½Ê½³õÊ¼»¯Êý¾Ý¿â
-            // ´ÓÒÀÀµ×¢ÈëÈÝÆ÷ÖÐ»ñÈ¡Êý¾Ý¿âÉÏÏÂÎÄÊµÀý¡£
-            // µ÷ÓÃ DbInitializer.Initialize ·½·¨¡£
-            // µ± Initialize ·½·¨Íê³ÉÊ±ÊÍ·ÅÉÏÏÂÎÄ£¬ÈçÒÔÏÂ´úÂëËùÊ¾£º
+            // Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½Ä·ï¿½Ê½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½È¡ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
+            // ï¿½ï¿½ï¿½ï¿½ DbInitializer.Initialize ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            // ï¿½ï¿½ Initialize ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -43,7 +39,7 @@ namespace ContosoUniversity
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseUrls("http://*:5000");
                 });
     }
 }
